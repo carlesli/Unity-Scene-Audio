@@ -24,14 +24,16 @@ public class AimBehaviourBasic : GenericBehaviour
 	void Update ()
 	{
 		// Activate/deactivate aim by input.
-		if (Input.GetAxisRaw(aimButton) != 0 && !aim)
-		{
-			StartCoroutine(ToggleAimOn());
-		}
-		else if (aim && Input.GetAxisRaw(aimButton) == 0)
-		{
-			StartCoroutine(ToggleAimOff());
-		}
+		//if (Input.GetAxisRaw(aimButton) != 0 && !aim)
+		//{
+		//	StartCoroutine(ToggleAimOn());
+		//}
+		//else if (aim && Input.GetAxisRaw(aimButton) == 0)
+		//{
+		//	StartCoroutine(ToggleAimOff());
+		//}
+
+		StartCoroutine(ToggleAimOff());
 
 		// No sprinting while aiming.
 		canSprint = !aim;
