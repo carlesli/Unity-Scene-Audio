@@ -8,7 +8,8 @@ public class FootstepSound : MonoBehaviour
     public AudioClip[] foostepsOnSand;
     public AudioClip[] foostepsOnWood;
     public AudioClip jump;
-    public AudioClip land;
+    public AudioClip landGrass;
+    public AudioClip landWood;
 
     public string material;
 
@@ -55,7 +56,20 @@ public class FootstepSound : MonoBehaviour
         audioSource.volume = Random.Range(0.9f, 1.0f);
         audioSource.pitch = Random.Range(0.9f, 1.1f);
 
-        audioSource.PlayOneShot(land);
+        switch (material)
+        {
+            case "Grass":
+                audioSource.PlayOneShot(landGrass);
+                break;
+
+            case "Wood":
+                audioSource.PlayOneShot(landWood);
+                break;
+
+            default:
+                break;
+        }
+
     }
 
     void OnCollisionEnter(Collision collision)
