@@ -7,6 +7,8 @@ public class FootstepSound : MonoBehaviour
     public AudioClip[] foostepsOnGrass;
     public AudioClip[] foostepsOnSand;
     public AudioClip[] foostepsOnWood;
+    public AudioClip jump;
+    public AudioClip land;
 
     public string material;
 
@@ -23,10 +25,10 @@ public class FootstepSound : MonoBehaviour
                     audioSource.PlayOneShot(foostepsOnGrass[Random.Range(0, foostepsOnGrass.Length)]);
                 break;
 
-            case "Sand":
-                if (foostepsOnSand.Length > 0)
-                    audioSource.PlayOneShot(foostepsOnSand[Random.Range(0, foostepsOnSand.Length)]);
-                break;
+            //case "Sand":
+            //    if (foostepsOnSand.Length > 0)
+            //        audioSource.PlayOneShot(foostepsOnSand[Random.Range(0, foostepsOnSand.Length)]);
+            //    break;
 
             case "Wood":
                 if (foostepsOnWood.Length > 0)
@@ -36,6 +38,24 @@ public class FootstepSound : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    void PlayJumpSound()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.volume = Random.Range(0.9f, 1.0f);
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+
+        audioSource.PlayOneShot(jump);
+    }
+
+    void PlayLandSound()
+    {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.volume = Random.Range(0.9f, 1.0f);
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+
+        audioSource.PlayOneShot(land);
     }
 
     void OnCollisionEnter(Collision collision)
