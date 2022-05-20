@@ -22,13 +22,6 @@ public class MusicChange : MonoBehaviour
 
     void OnTriggerExit(Collider collider)
     {
-        if (collider.gameObject.tag == "Indoor")
-            insideSnapshot.TransitionTo(transitionTime);
-
-        //if (collider.gameObject.tag == "Outdoor")
-        //    forestSnpshot.TransitionTo(transitionTime);
-
-        else
-            forestSnapshot.TransitionTo(transitionTime);
+        forestSnapshot.TransitionTo(transitionTime);
     }
 }
